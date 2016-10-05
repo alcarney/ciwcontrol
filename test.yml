@@ -1,0 +1,39 @@
+- name: Station 1
+  capacity: 'Inf'
+  servers: 2
+  customers:
+    - class: 0
+      service: Exponential 2.4
+      connections:
+          - target: Station 1
+            prob: 0.3
+
+          - target: Station 2
+            prob: 0.4
+
+
+    - class: 1
+      dist: Exponential 4.7
+      service: Exponential 2.4
+
+    - class: 2
+      dist: Gamma 4.5 7
+      service: Exponential 2.4
+
+- name: Station 2
+  capacity: 6
+  servers: 1
+  customers:
+    - class: 0
+      dist: Exponential 4.3
+      service: Exponential 2.4
+      connections:
+          - target: Station 1
+            prob: 0.2
+
+    - class: 1
+      service: Uniform 2 9
+
+    - class: 2
+      dist: Gamma 4.5 2.3
+      service: Exponential 2.4
